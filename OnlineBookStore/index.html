@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Book Store</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <h1>📚 Online Book Store</h1>
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="🔍 Search books..."
+    >
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#categories">Categories</a>
+    <a href="#featured">Books</a>
+    <a href="#pdf">PDF Preview</a>
+    <a href="#wishlist">Wishlist</a>
+</nav>
+
+<section id="home" class="hero">
+    <h1>📚 Discover Your Next Favorite Book</h1>
+
+    <p>
+        Browse thousands of books from Technology,
+        Business, Education and more.
+    </p>
+
+    <a href="#featured">
+        <button>Browse Books</button>
+    </a>
+</section>
+
+<section id="categories" class="section">
+    <h2>📖 Book Categories</h2>
+
+    <div class="category-box">
+        <div onclick="filterBooks('All')">All</div>
+        <div onclick="filterBooks('Technology')">Technology</div>
+        <div onclick="filterBooks('Education')">Education</div>
+        <div onclick="filterBooks('Business')">Business</div>
+        <div onclick="filterBooks('Programming')">Programming</div>
+        <div onclick="filterBooks('Science')">Science</div>
+        <div onclick="filterBooks('Novel')">Novel</div>
+    </div>
+</section>
+
+<section id="featured" class="section">
+
+    <h2>🔥 Featured Books</h2>
+
+    <div class="book-container">
+
+    <div class="book-card" data-category="Technology">
+    <img src="images/laravel.jpg" alt="Laravel Guide">
+    <h3>Laravel Guide</h3>
+    <p class="author">Taylor Otwell</p>
+    <p class="price">$19.99</p>
+    <button onclick="addWishlist('Laravel Guide')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+<div class="book-card" data-category="Technology">
+    <img src="images/react.jpg" alt="React JS">
+    <h3>React JS Mastery</h3>
+    <p class="author">Dan Abramov</p>
+    <p class="price">$22.99</p>
+    <button onclick="addWishlist('React JS Mastery')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+<div class="book-card" data-category="Technology">
+    <img src="images/web.jpg" alt="Web Development">
+    <h3>Web Development Basics</h3>
+    <p class="author">John Smith</p>
+    <p class="price">$15.99</p>
+    <button onclick="addWishlist('Web Development Basics')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+<div class="book-card" data-category="Technology">
+    <img src="images/css.jpg" alt="CSS Design">
+    <h3>Advanced CSS Design</h3>
+    <p class="author">Kevin Powell</p>
+    <p class="price">$18.50</p>
+    <button onclick="addWishlist('Advanced CSS Design')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+<div class="book-card" data-category="Technology">
+    <img src="images/js.jpg" alt="JavaScript">
+    <h3>JavaScript Guide</h3>
+    <p class="author">Brendan Eich</p>
+    <p class="price">$20.00</p>
+    <button onclick="addWishlist('JavaScript Guide')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+    <div class="book-card" data-category="Education">
+    <img src="images/english.jpg" alt="English Grammar">
+    <h3>English Grammar</h3>
+    <p class="author">Raymond Murphy</p>
+    <p class="price">$14.99</p>
+    <button onclick="addWishlist('English Grammar')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+<div class="book-card" data-category="Education">
+    <img src="images/math.jpg" alt="Math Basics">
+    <h3>Mathematics Basics</h3>
+    <p class="author">Alan Turing</p>
+    <p class="price">$16.99</p>
+    <button onclick="addWishlist('Mathematics Basics')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+<div class="book-card" data-category="Education">
+    <img src="images/biology.jpg" alt="Biology">
+    <h3>Biology Fundamentals</h3>
+    <p class="author">Charles Darwin</p>
+    <p class="price">$17.50</p>
+    <button onclick="addWishlist('Biology Fundamentals')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+<div class="book-card" data-category="Education">
+    <img src="images/history.jpg" alt="History Book">
+    <h3>World History</h3>
+    <p class="author">Howard Zinn</p>
+    <p class="price">$13.99</p>
+    <button onclick="addWishlist('World History')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+<div class="book-card" data-category="Education">
+    <img src="images/physics.jpg" alt="Physics">
+    <h3>Physics Basics</h3>
+    <p class="author">Isaac Newton</p>
+    <p class="price">$19.00</p>
+    <button onclick="addWishlist('Physics Basics')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+    <div class="book-card" data-category="Business">
+    <img src="images/business.jpg" alt="Business Strategy">
+    <h3>Business Strategy</h3>
+    <p class="author">Michael Porter</p>
+    <p class="price">$24.99</p>
+    <button onclick="addWishlist('Business Strategy')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+<div class="book-card" data-category="Business">
+    <img src="images/marketing.jpg" alt="Marketing">
+    <h3>Digital Marketing</h3>
+    <p class="author">Philip Kotler</p>
+    <p class="price">$21.99</p>
+    <button onclick="addWishlist('Digital Marketing')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+<div class="book-card" data-category="Business">
+    <img src="images/startup.jpg" alt="Startup">
+    <h3>Startup Guide</h3>
+    <p class="author">Elon Musk</p>
+    <p class="price">$25.00</p>
+    <button onclick="addWishlist('Startup Guide')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+<div class="book-card" data-category="Business">
+    <img src="images/money.jpg" alt="Money">
+    <h3>Financial Freedom</h3>
+    <p class="author">Robert Kiyosaki</p>
+    <p class="price">$20.50</p>
+    <button onclick="addWishlist('Financial Freedom')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+<div class="book-card" data-category="Business">
+    <img src="images/leadership.jpg" alt="Leadership">
+    <h3>Leadership Skills</h3>
+    <p class="author">John Maxwell</p>
+    <p class="price">$18.99</p>
+    <button onclick="addWishlist('Leadership Skills')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+    <div class="book-card" data-category="Programming">
+    <img src="images/python.jpg" alt="Python">
+    <h3>Python Programming</h3>
+    <p class="author">Guido van Rossum</p>
+    <p class="price">$23.99</p>
+    <button onclick="addWishlist('Python Programming')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+<div class="book-card" data-category="Programming">
+    <img src="images/java.jpg" alt="Java">
+    <h3>Java Essentials</h3>
+    <p class="author">James Gosling</p>
+    <p class="price">$22.50</p>
+    <button onclick="addWishlist('Java Essentials')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+<div class="book-card" data-category="Programming">
+    <img src="images/cpp.jpg" alt="C++">
+    <h3>C++ Basics</h3>
+    <p class="author">Bjarne Stroustrup</p>
+    <p class="price">$19.99</p>
+    <button onclick="addWishlist('C++ Basics')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+<div class="book-card" data-category="Programming">
+    <img src="images/php.jpg" alt="PHP">
+    <h3>PHP for Beginners</h3>
+    <p class="author">Rasmus Lerdorf</p>
+    <p class="price">$17.99</p>
+    <button onclick="addWishlist('PHP for Beginners')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+<div class="book-card" data-category="Programming">
+    <img src="images/flutter.jpg" alt="Flutter">
+    <h3>Flutter Development</h3>
+    <p class="author">Google Dev Team</p>
+    <p class="price">$24.00</p>
+    <button onclick="addWishlist('Flutter Development')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+    <div class="book-card" data-category="Science">
+    <img src="images/science.jpg" alt="Science">
+    <h3>Basic Science</h3>
+    <p class="author">Albert Einstein</p>
+    <p class="price">$18.99</p>
+    <button onclick="addWishlist('Basic Science')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+<div class="book-card" data-category="Science">
+    <img src="images/space.jpg" alt="Space">
+    <h3>Space Exploration</h3>
+    <p class="author">Neil Armstrong</p>
+    <p class="price">$20.99</p>
+    <button onclick="addWishlist('Space Exploration')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+<div class="book-card" data-category="Science">
+    <img src="images/chemistry.jpg" alt="Chemistry">
+    <h3>Chemistry Basics</h3>
+    <p class="author">Marie Curie</p>
+    <p class="price">$17.99</p>
+    <button onclick="addWishlist('Chemistry Basics')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+<div class="book-card" data-category="Science">
+    <img src="images/earth.jpg" alt="Earth">
+    <h3>Earth Science</h3>
+    <p class="author">David Attenborough</p>
+    <p class="price">$16.50</p>
+    <button onclick="addWishlist('Earth Science')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+<div class="book-card" data-category="Science">
+    <img src="images/biology2.jpg" alt="Biology">
+    <h3>Human Biology</h3>
+    <p class="author">Jane Goodall</p>
+    <p class="price">$19.50</p>
+    <button onclick="addWishlist('Human Biology')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+    <div class="book-card" data-category="Novel">
+    <img src="images/novel1.jpg" alt="Novel">
+    <h3>The Great Story</h3>
+    <p class="author">Unknown</p>
+    <p class="price">$12.99</p>
+    <button onclick="addWishlist('The Great Story')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+<div class="book-card" data-category="Novel">
+    <img src="images/novel2.jpg" alt="Novel">
+    <h3>Love in Paris</h3>
+    <p class="author">Anna Smith</p>
+    <p class="price">$13.99</p>
+    <button onclick="addWishlist('Love in Paris')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+<div class="book-card" data-category="Novel">
+    <img src="images/novel3.jpg" alt="Novel">
+    <h3>Dark Night</h3>
+    <p class="author">John Carter</p>
+    <p class="price">$14.50</p>
+    <button onclick="addWishlist('Dark Night')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+<div class="book-card" data-category="Novel">
+    <img src="images/novel4.jpg" alt="Novel">
+    <h3>Mystery Island</h3>
+    <p class="author">Emily Brown</p>
+    <p class="price">$15.00</p>
+    <button onclick="addWishlist('Mystery Island')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+<div class="book-card" data-category="Novel">
+    <img src="images/novel5.jpg" alt="Novel">
+    <h3>Hidden Truth</h3>
+    <p class="author">Michael Lee</p>
+    <p class="price">$16.00</p>
+    <button onclick="addWishlist('Hidden Truth')">Add Wishlist</button>
+    <button class="buy-btn">Buy Now</button>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+    <h2>🔥 Best Sellers</h2>
+
+    <div class="book-container">
+
+        <div class="book-card">
+            <img src="images/laravel.jpg" alt="">
+            <h3>Laravel Guide</h3>
+            <p>Best Seller</p>
+        </div>
+
+        <div class="book-card">
+            <img src="images/english.jpg" alt="">
+            <h3>English Grammar</h3>
+            <p>Top Rated</p>
+        </div>
+
+        <div class="book-card">
+            <img src="images/business.jpg" alt="">
+            <h3>Business Strategy</h3>
+            <p>Editor's Choice</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="pdf" class="section">
+
+    <h2>📄 PDF Preview</h2>
+
+    <div class="book-container">
+
+        <div class="book-card">
+            <img src="images/laravel.jpg" alt="">
+            <h3>Laravel Guide</h3>
+
+            <a href="books/mybook.pdf" target="_blank">
+                Preview PDF
+            </a>
+        </div>
+
+        <div class="book-card">
+            <img src="images/english.jpg" alt="">
+            <h3>English Grammar</h3>
+
+            <a href="books/mybook.pdf" target="_blank">
+                Preview PDF
+            </a>
+        </div>
+
+        <div class="book-card">
+            <img src="images/business.jpg" alt="">
+            <h3>Business Strategy</h3>
+
+            <a href="books/mybook.pdf" target="_blank">
+                Preview PDF
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="wishlist" class="section">
+
+    <h2>❤️ My Wishlist</h2>
+
+    <p>Save your favorite books for later reading.</p>
+
+    <ul id="wishlistItems"></ul>
+
+</section>
+
+<section class="section">
+
+    <h2>📊 Store Statistics</h2>
+
+    <div class="category-box">
+        <div>1000+ Books</div>
+        <div>150+ Authors</div>
+        <div>1000000+ Users</div>
+        <div>4.9 Rating</div>
+    </div>
+
+</section>
+
+<section class="section">
+
+    <h2>ℹ️ About Us</h2>
+
+    <p>
+        Online Book Store is a web application that allows users
+        to browse, search, preview and save their favorite books.
+        The platform provides an easy and user-friendly experience
+        for book lovers.
+    </p>
+
+</section>
+
+<footer>
+    <p>© 2026 Online Book Store | Created by Choeung Oudom</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
